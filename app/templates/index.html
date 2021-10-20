@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+​
+{% block title %}Contributor Details{% endblock title %}
+​
+{% block page_header %}
+​
+    Dataclearing PR info
+{% endblock page_header %}
+
+{% block content %}
+    <!-- {% for repo in github_pr_info['github_repositories'] %}
+    <br>
+    <br>
+    <div class="ons-container">
+        <div class="ons-grid ons-grid--column@xxs@s">
+          <div class="ons-grid__col ons-col-4@m">
+            <div class="ons-card" aria-labelledBy="title1" aria-describedBy="text1">
+              <h2 class="ons-u-fs-m" id="title1">
+                <a href="{{ repo['pr_url']}}">{{repo['repository']}}:{{repo['pr_number']}}</a>
+              </h2>
+              <h3> {{repo['title']}}</h3>
+              <p id="text1">{{ repo['pr_description'] }}</p>
+            </div>
+            <br><br>
+          </div>
+        </div>
+      </div>
+      {% endfor %} -->
+
+      <br>
+      <table id="basic-table" class="ons-table">
+        <caption class="ons-table__caption">Open Pull Requests for Data Clearing Team</caption>
+        <thead class="ons-table__head">
+          <tr class="ons-table__row">
+            <th scope="col" class="ons-table__header ">
+              <span>Repository</span>
+            </th>
+            <th scope="col" class="ons-table__header ">
+              <span>Pull Request No</span>
+            </th>
+            <th scope="col" class="ons-table__header ">
+              <span>PR Title</span>
+            </th>
+            <th scope="col" class="ons-table__header ">
+                <span>Link</span>
+              </th>
+          </tr>
+        </thead>
+        <tbody class="ons-table__body">
+        {% for repo in github_pr_info['github_repositories'] %}
+          <tr class="ons-table__row">
+            <td class="ons-table__cell " data-th="Repository">
+                {{repo['repository']}}
+            </td>
+            <td class="ons-table__cell " data-th="Pull Request No">
+                {{repo['pr_number']}}
+            </td>
+            <td class="ons-table__cell " data-th="PR Title">
+                {{repo['title']}}
+            </td>
+            <td class="ons-table__cell " data-th="Link">
+                <a href="{{ repo['pr_url']}}">{{repo['repository']}}:{{repo['pr_number']}}</a>
+              </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+{% endblock content %}
