@@ -16,7 +16,10 @@ def home():
     github_pr_info_list = []
 
     for repo in repos_list:
-        pulls = g.get_repo('ONSDigital/' + repo).get_pulls(state='open', sort='created', base='main')
+        if repo == 'takeon-database':
+            pulls = g.get_repo('ONSDigital/' + repo).get_pulls(state='open', sort='created', base='master')
+        else:
+            pulls = g.get_repo('ONSDigital/' + repo).get_pulls(state='open', sort='created', base='main')
         for pr in pulls:
             individual_pr_details = {}
             individual_pr_details['repository'] = repo

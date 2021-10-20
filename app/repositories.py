@@ -6,4 +6,5 @@ repos_list = [  'takeon-ui',
                 'takeon-egestion',
                 'spp-dataclearing-pipeline',
                 'spp-dataclearing-quicksight-infrastructure',
-                'spp-dataclearing-quicksight']
+                'spp-dataclearing-quicksight',
+                'takeon-database']
